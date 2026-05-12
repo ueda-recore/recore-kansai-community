@@ -1,0 +1,694 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>第1回 RECORE 関西コミュニティ | 2025年6月5日（金）開催</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&family=Noto+Serif+JP:wght@700;900&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --green-dark:  #1E3A14;
+      --green-mid:   #2D4E1C;
+      --green-card:  #1A3212;
+      --gold:        #C4D44A;
+      --gold-dim:    rgba(196,212,74,0.15);
+      --text:        #2C2C2C;
+      --text-sub:    #6A6A6A;
+      --bg:          #F7F7F2;
+      --surface:     #FFFFFF;
+      --border:      #DDE0D8;
+    }
+
+    body {
+      font-family: 'Noto Sans JP', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.75;
+    }
+
+    /* ===== 共通 ===== */
+    .container { max-width: 860px; margin: 0 auto; padding: 0 24px; }
+    section { padding: 72px 24px; }
+
+    .label-en {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      color: var(--gold);
+      margin-bottom: 16px;
+    }
+    .label-en::before {
+      content: '';
+      display: block;
+      width: 32px;
+      height: 2px;
+      background: var(--gold);
+      flex-shrink: 0;
+    }
+    .section-title {
+      font-family: 'Noto Serif JP', serif;
+      font-size: clamp(24px, 4vw, 36px);
+      font-weight: 900;
+      color: var(--green-dark);
+      line-height: 1.3;
+      margin-bottom: 20px;
+    }
+    .section-sub {
+      color: var(--text-sub);
+      font-size: 15px;
+      margin-bottom: 48px;
+      max-width: 600px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: var(--green-mid);
+      color: #fff;
+      font-size: 15px;
+      font-weight: 700;
+      padding: 15px 36px;
+      border-radius: 0;
+      text-decoration: none;
+      transition: background 0.2s;
+      letter-spacing: 0.04em;
+    }
+    .btn svg { width: 18px; height: 18px; fill: none; stroke: currentColor; stroke-width: 2; }
+    .btn:hover { background: #3a6425; }
+    .btn-gold { background: var(--gold); color: var(--green-dark); }
+    .btn-gold:hover { background: #d6e85a; }
+
+    /* ===== HERO ===== */
+    .hero {
+      background: var(--surface);
+      padding: 56px 0 64px;
+    }
+    .hero-container { max-width: 860px; margin: 0 auto; padding: 0 24px; }
+
+    /* 縦線レイアウト共通 */
+    .timeline-layout {
+      display: flex;
+      gap: 20px;
+      align-items: stretch;
+    }
+    .tl-aside {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 36px;
+      flex-shrink: 0;
+    }
+    .tl-circle {
+      width: 36px; height: 36px;
+      border-radius: 50%;
+      background: var(--gold);
+      color: var(--green-dark);
+      font-size: 16px;
+      font-weight: 900;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      font-family: 'Noto Serif JP', serif;
+    }
+    .tl-vline {
+      width: 2px;
+      flex: 1;
+      background: var(--gold);
+      margin-top: 6px;
+    }
+    .tl-main { flex: 1; min-width: 0; }
+
+    /* ヒーロービジュアルカード */
+    .event-visual {
+      width: 100%;
+      min-height: 300px;
+      background: linear-gradient(160deg, #2D4E1C 0%, #1E3A14 50%, #0F2009 100%);
+      position: relative;
+      overflow: hidden;
+      margin-bottom: 20px;
+    }
+    .event-visual::before {
+      content: '';
+      position: absolute;
+      right: -80px; top: -80px;
+      width: 300px; height: 300px;
+      border: 1px solid rgba(196,212,74,0.15);
+      border-radius: 50%;
+    }
+    .event-visual-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(10,20,5,0.75) 0%, transparent 55%);
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding: 28px 32px;
+    }
+    .event-tags {
+      display: flex;
+      gap: 8px;
+      margin-bottom: 14px;
+      flex-wrap: wrap;
+    }
+    .etag {
+      padding: 4px 12px;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      background: rgba(255,255,255,0.18);
+      color: #fff;
+    }
+    .etag-gold { background: var(--gold); color: var(--green-dark); }
+    .event-heading {
+      font-family: 'Noto Serif JP', serif;
+      font-size: clamp(22px, 4vw, 36px);
+      font-weight: 900;
+      color: #fff;
+      line-height: 1.35;
+    }
+    .event-heading .sub {
+      display: block;
+      font-size: clamp(13px, 1.8vw, 16px);
+      font-weight: 400;
+      font-family: 'Noto Sans JP', sans-serif;
+      color: rgba(255,255,255,0.7);
+      margin-top: 6px;
+    }
+
+    /* 情報バー */
+    .event-info-bar {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      font-size: 13px;
+      color: var(--gold);
+      font-weight: 500;
+      padding: 14px 0;
+      border-bottom: 1px solid var(--border);
+      margin-bottom: 20px;
+    }
+    .event-info-bar span { display: flex; align-items: center; gap: 6px; color: var(--text-sub); }
+    .event-info-bar .ico { color: var(--gold); font-size: 14px; }
+
+    /* 統計カード */
+    .event-stats {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+      margin-bottom: 28px;
+    }
+    .event-stat {
+      background: var(--bg);
+      padding: 22px 16px;
+      text-align: center;
+      border-top: 2px solid var(--border);
+    }
+    .event-stat-val {
+      font-family: 'Noto Serif JP', serif;
+      font-size: clamp(22px, 3vw, 30px);
+      font-weight: 900;
+      color: var(--green-dark);
+      line-height: 1.2;
+      margin-bottom: 5px;
+    }
+    .event-stat-lbl { font-size: 11px; color: var(--text-sub); }
+
+    /* ===== ABOUT ===== */
+    .about { background: var(--bg); }
+    .about-layout {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 48px;
+      align-items: start;
+    }
+    .about-lead {
+      font-family: 'Noto Serif JP', serif;
+      font-size: clamp(17px, 2.5vw, 21px);
+      font-weight: 700;
+      color: var(--green-dark);
+      line-height: 1.7;
+      margin-bottom: 20px;
+    }
+    .about-body { font-size: 14px; color: var(--text-sub); line-height: 1.85; }
+    .about-card { background: var(--green-card); padding: 32px; color: #fff; }
+    .about-card-title {
+      color: var(--gold);
+      font-size: 14px;
+      font-weight: 700;
+      margin-bottom: 24px;
+      letter-spacing: 0.06em;
+    }
+    .about-list { list-style: none; }
+    .about-list li {
+      display: flex;
+      gap: 14px;
+      padding: 14px 0;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+      font-size: 13px;
+      line-height: 1.6;
+    }
+    .about-list li:last-child { border-bottom: none; }
+    .about-list .arrow { color: var(--gold); font-size: 14px; font-weight: 700; flex-shrink: 0; margin-top: 1px; }
+    .about-list strong { display: block; color: var(--gold); font-size: 13px; margin-bottom: 3px; }
+    .about-list span { color: rgba(255,255,255,0.7); font-size: 12px; }
+
+    /* ===== BENEFITS ===== */
+    .benefits { background: var(--surface); }
+    .benefit-items { margin-top: 40px; }
+    .benefit-row {
+      display: flex;
+      gap: 20px;
+      align-items: stretch;
+    }
+    .benefit-aside {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 36px;
+      flex-shrink: 0;
+    }
+    .benefit-num {
+      width: 36px; height: 36px;
+      border-radius: 50%;
+      background: var(--gold);
+      color: var(--green-dark);
+      font-size: 13px;
+      font-weight: 900;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+    .benefit-vline {
+      width: 2px;
+      flex: 1;
+      background: rgba(196,212,74,0.3);
+      margin-top: 6px;
+    }
+    .benefit-row:last-child .benefit-vline { opacity: 0; }
+    .benefit-body {
+      flex: 1;
+      padding: 4px 0 44px;
+    }
+    .benefit-body h3 {
+      font-family: 'Noto Serif JP', serif;
+      font-size: clamp(20px, 3vw, 26px);
+      font-weight: 700;
+      color: var(--green-dark);
+      margin-bottom: 10px;
+      line-height: 1.4;
+    }
+    .benefit-body p { font-size: 14px; color: var(--text-sub); line-height: 1.8; max-width: 560px; }
+
+    /* ===== TIMETABLE ===== */
+    .timetable { background: var(--bg); }
+    .timeline { max-width: 640px; }
+    .tl-item {
+      display: flex;
+      gap: 24px;
+      padding: 20px 0;
+      border-bottom: 1px solid var(--border);
+    }
+    .tl-item:last-child { border-bottom: none; }
+    .tl-time { font-size: 13px; font-weight: 700; color: var(--text-sub); min-width: 52px; padding-top: 2px; flex-shrink: 0; }
+    .tl-bar { width: 3px; background: var(--border); border-radius: 2px; flex-shrink: 0; }
+    .tl-bar.main { background: var(--gold); }
+    .tl-content { flex: 1; }
+    .tl-tag {
+      display: inline-block;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      padding: 2px 8px;
+      margin-bottom: 6px;
+      background: var(--gold-dim);
+      color: #5a620a;
+    }
+    .tl-tag.main-tag { background: var(--gold); color: var(--green-dark); }
+    .tl-content h3 { font-size: 15px; font-weight: 700; color: var(--green-dark); }
+    .tl-content p { font-size: 13px; color: var(--text-sub); margin-top: 4px; }
+
+    /* ===== INFO TABLE ===== */
+    .info { background: var(--bg); }
+    .info-table { max-width: 640px; border: 1px solid var(--border); }
+    .info-table table { width: 100%; border-collapse: collapse; }
+    .info-table th, .info-table td {
+      padding: 18px 24px;
+      border-bottom: 1px solid var(--border);
+      text-align: left;
+      font-size: 14px;
+      vertical-align: top;
+    }
+    .info-table tr:last-child th, .info-table tr:last-child td { border-bottom: none; }
+    .info-table th { width: 110px; color: var(--text-sub); font-weight: 500; font-size: 13px; white-space: nowrap; background: var(--bg); }
+    .info-table td { color: var(--green-dark); font-weight: 500; }
+    .info-note { font-size: 12px; color: var(--text-sub); font-weight: 400; margin-top: 4px; }
+
+    /* ===== CTA ===== */
+    .cta { background: var(--green-card); color: #fff; text-align: center; padding: 80px 24px; }
+    .cta .label-en { justify-content: center; }
+    .cta .label-en::before { display: none; }
+    .cta h2 {
+      font-family: 'Noto Serif JP', serif;
+      font-size: clamp(22px, 4vw, 34px);
+      font-weight: 900;
+      margin-bottom: 16px;
+    }
+    .cta p { opacity: 0.7; font-size: 15px; margin-bottom: 36px; }
+    .cta-note { margin-top: 16px; font-size: 12px; color: rgba(255,255,255,0.4); }
+
+    /* ===== FOOTER ===== */
+    footer {
+      background: #0F1E09;
+      color: rgba(255,255,255,0.4);
+      text-align: center;
+      padding: 28px 24px;
+      font-size: 12px;
+    }
+    footer strong { color: rgba(255,255,255,0.7); }
+
+    /* ===== FADE-IN ===== */
+    .fade-in { opacity: 0; transform: translateY(16px); transition: opacity 0.55s ease, transform 0.55s ease; }
+    .fade-in.visible { opacity: 1; transform: translateY(0); }
+
+    @media (max-width: 640px) {
+      .about-layout { grid-template-columns: 1fr; }
+      .event-stats { grid-template-columns: repeat(3, 1fr); gap: 6px; }
+      .event-stat-val { font-size: 20px; }
+      section { padding: 56px 20px; }
+      .hero { padding: 40px 0 52px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ===== HERO ===== -->
+<section class="hero">
+  <div class="hero-container">
+
+    <div class="label-en" style="margin-bottom:28px;">EVENT</div>
+
+    <div class="timeline-layout">
+      <!-- 左縦線 + サークル -->
+      <div class="tl-aside">
+        <div class="tl-circle">1</div>
+        <div class="tl-vline"></div>
+      </div>
+
+      <!-- メインコンテンツ -->
+      <div class="tl-main">
+
+        <!-- 大きなビジュアルカード -->
+        <div class="event-visual">
+          <div class="event-visual-overlay">
+            <div class="event-tags">
+              <span class="etag etag-gold">Vol.1</span>
+              <span class="etag">関西</span>
+              <span class="etag">2025年6月5日</span>
+            </div>
+            <h1 class="event-heading">
+              第1回 RECORE 関西コミュニティ
+              <span class="sub">ともに悩み、ともに解決できる場をつくる</span>
+            </h1>
+          </div>
+        </div>
+
+        <!-- 情報バー -->
+        <div class="event-info-bar">
+          <span><span class="ico">📅</span> 2025年6月5日（金）17:00〜19:00</span>
+          <span><span class="ico">📍</span> NEXT51 三国ヶ丘店</span>
+          <span><span class="ico">💴</span> 参加費無料</span>
+        </div>
+
+        <!-- 統計カード -->
+        <div class="event-stats">
+          <div class="event-stat">
+            <div class="event-stat-val">第1回</div>
+            <div class="event-stat-lbl">関西コミュニティ</div>
+          </div>
+          <div class="event-stat">
+            <div class="event-stat-val">5〜10名</div>
+            <div class="event-stat-lbl">参加定員</div>
+          </div>
+          <div class="event-stat">
+            <div class="event-stat-val">無料</div>
+            <div class="event-stat-lbl">参加費</div>
+          </div>
+        </div>
+
+        <!-- CTA -->
+        <a href="https://forms.gle/mqekHqyT34VcmQuD8" class="btn btn-gold">
+          <svg viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m2 8 10 6 10-6"/></svg>
+          参加を申し込む
+        </a>
+        <p style="margin-top:12px;font-size:12px;color:var(--text-sub);">※懇親会（任意参加）は別途費用が発生します</p>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== ABOUT ===== -->
+<section class="about">
+  <div class="container">
+    <div class="about-layout">
+      <div class="fade-in">
+        <div class="label-en">ABOUT</div>
+        <h2 class="section-title">このイベントについて</h2>
+        <p class="about-lead">
+          「小さな成功体験」を持ち寄り、<br>
+          自社の課題解決のヒントを<br>
+          一緒に見つける場所。
+        </p>
+        <p class="about-body">
+          単なるシステム勉強会ではなく、参加者同士が市場を盛り上げる作戦会議のような熱量を持つコミュニティを目指します。RECORE運営側が教えるのではなく、ユーザー間で知見や失敗談を共有し合う自律的な空間です。
+        </p>
+      </div>
+      <div class="about-card fade-in">
+        <div class="about-card-title">参加することで得られるもの</div>
+        <ul class="about-list">
+          <li>
+            <span class="arrow">→</span>
+            <div>
+              <strong>成功体験・事例の共有</strong>
+              <span>「こうなったらうまくいった」を持ち寄り、参加者全員で運営のヒントをつくります。</span>
+            </div>
+          </li>
+          <li>
+            <span class="arrow">→</span>
+            <div>
+              <strong>ユーザー同士の「教え合い」</strong>
+              <span>ユーザー間で知見や失敗談を共有し合う自律的な空間を作ります。</span>
+            </div>
+          </li>
+          <li>
+            <span class="arrow">→</span>
+            <div>
+              <strong>双方向のコミュニケーション</strong>
+              <span>対話を通じて横の繋がりを生み出します。</span>
+            </div>
+          </li>
+          <li>
+            <span class="arrow">→</span>
+            <div>
+              <strong>本音で話せる安全な場</strong>
+              <span>リアルな悩みを共有できる心理的安全性の高い場を提供します。</span>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== BENEFITS ===== -->
+<section class="benefits">
+  <div class="container">
+    <div class="label-en fade-in">BENEFITS</div>
+    <h2 class="section-title fade-in">参加するメリット</h2>
+
+    <div class="benefit-items">
+
+      <div class="benefit-row fade-in">
+        <div class="benefit-aside">
+          <div class="benefit-num">01</div>
+          <div class="benefit-vline"></div>
+        </div>
+        <div class="benefit-body">
+          <h3>問題の解決策が見つかる</h3>
+          <p>抱えていた課題に対する具体的な解決のヒントを、同じRECOREユーザーから直接得ることができます。</p>
+        </div>
+      </div>
+
+      <div class="benefit-row fade-in">
+        <div class="benefit-aside">
+          <div class="benefit-num">02</div>
+          <div class="benefit-vline"></div>
+        </div>
+        <div class="benefit-body">
+          <h3>別視点からの意見をもらえる</h3>
+          <p>自分では気づかなかった視点や発想からのアドバイスが得られます。業種が違うからこそ見える景色があります。</p>
+        </div>
+      </div>
+
+      <div class="benefit-row fade-in">
+        <div class="benefit-aside">
+          <div class="benefit-num">03</div>
+          <div class="benefit-vline"></div>
+        </div>
+        <div class="benefit-body">
+          <h3>他社事例から自社のヒントに</h3>
+          <p>他社の運営・経営面を直接聞けるのはこの場ならでは。「うちでも使える！」をたくさん持ち帰れます。</p>
+        </div>
+      </div>
+
+      <div class="benefit-row fade-in">
+        <div class="benefit-aside">
+          <div class="benefit-num">04</div>
+          <div class="benefit-vline"></div>
+        </div>
+        <div class="benefit-body">
+          <h3>RECOREの活用方法を知る</h3>
+          <p>他のユーザーが実践しているRECOREの活用事例に触れ、自社の運用を一段レベルアップするきっかけになります。</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ===== TIMETABLE ===== -->
+<section class="timetable">
+  <div class="container">
+    <div class="label-en fade-in">TIMETABLE</div>
+    <h2 class="section-title fade-in">タイムテーブル</h2>
+    <p class="section-sub fade-in">17:00〜19:00（約2時間）</p>
+    <div class="timeline">
+      <div class="tl-item fade-in">
+        <div class="tl-time">17:00</div>
+        <div class="tl-bar"></div>
+        <div class="tl-content">
+          <span class="tl-tag">WELCOME</span>
+          <h3>NEXT51 店内見学・運用教授</h3>
+          <p>会場となるNEXT51の店内を見学します</p>
+        </div>
+      </div>
+      <div class="tl-item fade-in">
+        <div class="tl-time">17:30</div>
+        <div class="tl-bar"></div>
+        <div class="tl-content">
+          <span class="tl-tag">OPENING</span>
+          <h3>オープニング・主旨説明</h3>
+        </div>
+      </div>
+      <div class="tl-item fade-in">
+        <div class="tl-time">17:35</div>
+        <div class="tl-bar"></div>
+        <div class="tl-content">
+          <span class="tl-tag">INTRO</span>
+          <h3>自己紹介（RECORE・きたに様）</h3>
+        </div>
+      </div>
+      <div class="tl-item fade-in">
+        <div class="tl-time">17:40</div>
+        <div class="tl-bar"></div>
+        <div class="tl-content">
+          <span class="tl-tag">INTRO</span>
+          <h3>軽自己紹介（参加者）</h3>
+        </div>
+      </div>
+      <div class="tl-item fade-in">
+        <div class="tl-time">17:45</div>
+        <div class="tl-bar"></div>
+        <div class="tl-content">
+          <span class="tl-tag">ICEBREAK</span>
+          <h3>アイスブレイク</h3>
+        </div>
+      </div>
+      <div class="tl-item fade-in">
+        <div class="tl-time">18:00</div>
+        <div class="tl-bar main"></div>
+        <div class="tl-content">
+          <span class="tl-tag main-tag">MAIN</span>
+          <h3>成功体験・成功事例の共有</h3>
+          <p>「自慢できる」ことを持ち寄り、みんなでシェアする50分間</p>
+        </div>
+      </div>
+      <div class="tl-item fade-in">
+        <div class="tl-time">18:50</div>
+        <div class="tl-bar"></div>
+        <div class="tl-content">
+          <span class="tl-tag">CLOSING</span>
+          <h3>クロージング・記念撮影</h3>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== INFO ===== -->
+<section class="info">
+  <div class="container">
+    <div class="label-en fade-in">OVERVIEW</div>
+    <h2 class="section-title fade-in">開催概要</h2>
+    <div class="info-table fade-in">
+      <table>
+        <tr>
+          <th>開催日時</th>
+          <td>2025年6月5日（金）17:00〜19:00</td>
+        </tr>
+        <tr>
+          <th>開催場所</th>
+          <td>NEXT51 三国ヶ丘店<div class="info-note">〒590-0024 大阪府堺市堺区向陵中町４丁４−４</div></td>
+        </tr>
+        <tr>
+          <th>参加定員</th>
+          <td>5〜10名程度</td>
+        </tr>
+        <tr>
+          <th>参加費</th>
+          <td>無料<div class="info-note">※懇親会は任意参加・別途費用が発生します</div></td>
+        </tr>
+        <tr>
+          <th>主催者</th>
+          <td>上田陸駆<div class="info-note">株式会社RECORE カスタマーサクセス</div></td>
+        </tr>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- ===== CTA ===== -->
+<section class="cta">
+  <div class="label-en">JOIN US</div>
+  <h2>参加申し込みはこちら</h2>
+  <p>定員5〜10名の少人数制。ぜひお早めにお申し込みください。</p>
+  <a href="https://forms.gle/mqekHqyT34VcmQuD8" class="btn btn-gold">
+    <svg viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m2 8 10 6 10-6"/></svg>
+    申し込みフォームへ
+  </a>
+  <p class="cta-note">参加費は無料です。懇親会のみ別途費用が発生します。</p>
+</section>
+
+<!-- ===== FOOTER ===== -->
+<footer>
+  <p><strong>RECORE</strong> &copy; 2025 株式会社RECORE. All rights reserved.</p>
+</footer>
+
+<script>
+  const io = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.fade-in').forEach(el => io.observe(el));
+</script>
+</body>
+</html>
