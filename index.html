@@ -6,7 +6,7 @@
   <title>第1回 RECORE 関西コミュニティ | 2025年6月5日（金）開催</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&family=Noto+Serif+JP:wght@700;900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&family=Zen+Kaku+Gothic+New:wght@400;700;900&display=swap" rel="stylesheet">
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -32,7 +32,7 @@
 
     /* ===== 共通 ===== */
     .container { max-width: 860px; margin: 0 auto; padding: 0 24px; }
-    section { padding: 72px 24px; }
+    section { padding: 96px 24px; }
 
     .label-en {
       display: flex;
@@ -53,7 +53,7 @@
       flex-shrink: 0;
     }
     .section-title {
-      font-family: 'Noto Serif JP', serif;
+      font-family: 'Zen Kaku Gothic New', sans-serif;
       font-size: clamp(24px, 4vw, 36px);
       font-weight: 900;
       color: var(--green-dark);
@@ -76,13 +76,14 @@
       font-size: 15px;
       font-weight: 700;
       padding: 15px 36px;
-      border-radius: 0;
+      border-radius: 12px;
       text-decoration: none;
-      transition: background 0.2s;
+      transition: all 0.2s;
       letter-spacing: 0.04em;
+      box-shadow: 0 4px 16px rgba(45, 78, 28, 0.15);
     }
     .btn svg { width: 18px; height: 18px; fill: none; stroke: currentColor; stroke-width: 2; }
-    .btn:hover { background: #3a6425; }
+    .btn:hover { background: #3a6425; transform: translateY(-2px); box-shadow: 0 6px 20px rgba(45, 78, 28, 0.2); }
     .btn-gold { background: var(--gold); color: var(--green-dark); }
     .btn-gold:hover { background: #d6e85a; }
 
@@ -117,7 +118,7 @@
       align-items: center;
       justify-content: center;
       flex-shrink: 0;
-      font-family: 'Noto Serif JP', serif;
+      font-family: 'Zen Kaku Gothic New', sans-serif;
     }
     .tl-vline {
       width: 2px;
@@ -135,6 +136,8 @@
       position: relative;
       overflow: hidden;
       margin-bottom: 20px;
+      border-radius: 16px;
+      box-shadow: 0 8px 32px rgba(30, 58, 20, 0.2);
     }
     .event-visual::before {
       content: '';
@@ -169,7 +172,7 @@
     }
     .etag-gold { background: var(--gold); color: var(--green-dark); }
     .event-heading {
-      font-family: 'Noto Serif JP', serif;
+      font-family: 'Zen Kaku Gothic New', sans-serif;
       font-size: clamp(22px, 4vw, 36px);
       font-weight: 900;
       color: #fff;
@@ -211,9 +214,11 @@
       padding: 22px 16px;
       text-align: center;
       border-top: 2px solid var(--border);
+      border-radius: 12px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
     }
     .event-stat-val {
-      font-family: 'Noto Serif JP', serif;
+      font-family: 'Zen Kaku Gothic New', sans-serif;
       font-size: clamp(22px, 3vw, 30px);
       font-weight: 900;
       color: var(--green-dark);
@@ -231,7 +236,7 @@
       align-items: start;
     }
     .about-lead {
-      font-family: 'Noto Serif JP', serif;
+      font-family: 'Zen Kaku Gothic New', sans-serif;
       font-size: clamp(17px, 2.5vw, 21px);
       font-weight: 700;
       color: var(--green-dark);
@@ -239,7 +244,7 @@
       margin-bottom: 20px;
     }
     .about-body { font-size: 14px; color: var(--text-sub); line-height: 1.85; }
-    .about-card { background: var(--green-card); padding: 32px; color: #fff; }
+    .about-card { background: var(--green-card); padding: 32px; color: #fff; border-radius: 16px; box-shadow: 0 8px 32px rgba(26, 50, 18, 0.2); }
     .about-card-title {
       color: var(--gold);
       font-size: 14px;
@@ -300,7 +305,7 @@
       padding: 4px 0 44px;
     }
     .benefit-body h3 {
-      font-family: 'Noto Serif JP', serif;
+      font-family: 'Zen Kaku Gothic New', sans-serif;
       font-size: clamp(20px, 3vw, 26px);
       font-weight: 700;
       color: var(--green-dark);
@@ -334,12 +339,12 @@
       color: #5a620a;
     }
     .tl-tag.main-tag { background: var(--gold); color: var(--green-dark); }
-    .tl-content h3 { font-size: 15px; font-weight: 700; color: var(--green-dark); }
+    .tl-content h3 { font-size: 15px; font-weight: 700; color: var(--green-dark); font-family: 'Zen Kaku Gothic New', sans-serif; }
     .tl-content p { font-size: 13px; color: var(--text-sub); margin-top: 4px; }
 
     /* ===== INFO TABLE ===== */
     .info { background: var(--bg); }
-    .info-table { max-width: 640px; border: 1px solid var(--border); }
+    .info-table { max-width: 640px; border: 1px solid var(--border); border-radius: 12px; overflow: hidden; box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04); }
     .info-table table { width: 100%; border-collapse: collapse; }
     .info-table th, .info-table td {
       padding: 18px 24px;
@@ -358,7 +363,7 @@
     .cta .label-en { justify-content: center; }
     .cta .label-en::before { display: none; }
     .cta h2 {
-      font-family: 'Noto Serif JP', serif;
+      font-family: 'Zen Kaku Gothic New', sans-serif;
       font-size: clamp(22px, 4vw, 34px);
       font-weight: 900;
       margin-bottom: 16px;
