@@ -520,6 +520,17 @@ footer strong { color: rgba(255,255,255,0.7); }
 section { padding: 56px 20px; }
 .hero { padding: 40px 0 52px; }
 }
+.speech-bubble::after {
+  content: '';
+  position: absolute;
+  left: -12px;
+  top: 30px;
+  width: 0;
+  height: 0;
+  border-top: 12px solid transparent;
+  border-bottom: 12px solid transparent;
+  border-right: 12px solid #fff;
+}
 </style>
 
 </head>
@@ -826,10 +837,10 @@ section { padding: 56px 20px; }
     <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: center;">
       <!-- 写真 -->
       <div style="text-align: center;">
-        <img src="ueda.jpg" alt="上田陸駆" style="width: 100%; max-width: 360px; border-radius: 50%; box-shadow: 0 8px 32px rgba(30, 58, 20, 0.15);">
+        <div style="width: 360px; height: 360px; border-radius: 50%; overflow: hidden; box-shadow: 0 8px 32px rgba(30, 58, 20, 0.15); margin: 0 auto;"><img src="ueda.jpg" alt="上田陸駆" style="width: 100%; height: 100%; object-fit: cover;"></div>
       </div>
       <!-- コメント吹き出し -->
-      <div style="background: #fff; padding: 40px; border-radius: 16px; border-left: 4px solid var(--gold); box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08); position: relative;">
+      <div style="background: #fff; padding: 40px; border-radius: 16px; border-left: 4px solid var(--gold); box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08); position: relative;" class="speech-bubble">
         <p style="font-size: 14px; color: var(--text-sub); line-height: 1.9; margin-bottom: 16px;">関西コミュニティについてご検討いただきありがとうございます。</p>
         <p style="font-size: 14px; color: var(--text-sub); line-height: 1.9; margin-bottom: 16px;">関西コミュニティ発足の理由として1つは、「お客様ともっとコミュニケーションが取りたい！」という気持ちが一番でした。<br>RECOREだけのお話、運用についてのお話、それだけでなく人と人とのコミュニケーション、繋がりをもっと大切にしていきたい。という気持ちで今回関西コミュニティイベントを開催させていただくことになりました。</p>
         <p style="font-size: 14px; color: var(--text-sub); line-height: 1.9; margin-bottom: 16px;">お忙しい中大変恐縮ではございますが、参加される方々にとって実りのある時間にさせていただきたいと思っております。</p>
